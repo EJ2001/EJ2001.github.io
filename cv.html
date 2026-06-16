@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethan Jones — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D0D0F;
+      --surface:   #111115;
+      --border:    #222228;
+      --border-hi: #333340;
+      --accent:    #C8943A;
+      --accent-lo: rgba(200,148,58,0.08);
+      --accent-mid:rgba(200,148,58,0.18);
+      --text:      #E8E6E1;
+      --muted:     #6E6C68;
+      --muted-hi:  #9E9B96;
+      --mono:      'DM Mono', monospace;
+      --display:   'Space Grotesk', sans-serif;
+      --body:      'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2.5rem; height: 56px;
+      background: rgba(13,13,15,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono); font-size: 0.8rem;
+      color: var(--text); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-logo .cursor {
+      display: inline-block; width: 7px; height: 13px;
+      background: var(--accent); margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-dl {
+      font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent-mid);
+      padding: 0.4rem 0.9rem; border-radius: 2px;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
+    }
+    .nav-dl:hover { background: var(--accent); color: var(--bg); }
+
+    /* ── PAGE ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 7rem 2.5rem 5rem;
+    }
+
+    /* ── CV HEADER ── */
+    .cv-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-name {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-title {
+      font-family: var(--mono);
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .cv-contact {
+      text-align: right;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+
+    .cv-contact a, .cv-contact span {
+      font-family: var(--mono);
+      font-size: 0.75rem; color: var(--muted-hi);
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .cv-contact a:hover { color: var(--accent); }
+
+    .cv-divider {
+      border: none;
+      border-top: 1.5px solid var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── SECTIONS ── */
+    .cv-section { margin-bottom: 2.25rem; }
+
+    .cv-section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── PROFILE ── */
+    .cv-profile {
+      font-size: 0.9rem; color: var(--muted-hi);
+      line-height: 1.8; max-width: 680px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .cv-role {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-role-title {
+      font-family: var(--display);
+      font-size: 1rem; font-weight: 600;
+      color: var(--text);
+    }
+
+    .cv-role-dates {
+      font-family: var(--mono);
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.06em; white-space: nowrap;
+    }
+
+    .cv-company {
+      font-family: var(--mono);
+      font-size: 0.72rem; color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+    }
+
+    .cv-project {
+      font-family: var(--mono);
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .cv-project:first-of-type { margin-top: 0; }
+
+    .cv-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.5rem; }
+
+    .cv-bullets li {
+      font-size: 0.88rem; color: var(--muted-hi);
+      line-height: 1.65; padding-left: 1rem; position: relative;
+    }
+    .cv-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent); font-size: 0.78rem;
+    }
+
+    /* ── SKILLS ── */
+    .cv-skills { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .cv-skill-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1rem;
+      align-items: baseline;
+    }
+
+    .cv-skill-label {
+      font-family: var(--mono);
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cv-skill-val {
+      font-size: 0.88rem; color: var(--muted-hi);
+    }
+
+    /* ── EDUCATION ── */
+    .cv-edu-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+    }
+
+    .cv-edu-degree {
+      font-size: 0.92rem; font-weight: 500; color: var(--text);
+    }
+
+    .cv-edu-grade {
+      font-family: var(--mono);
+      font-size: 0.7rem; color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    .cv-edu-inst {
+      font-family: var(--mono);
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.04em; margin-top: 0.15rem;
+    }
+
+    .cv-edu-period {
+      font-family: var(--mono);
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.04em; white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ── FOOTER ── */
+    .cv-footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .page { padding: 5rem 1.25rem 3rem; }
+      .cv-header { grid-template-columns: 1fr; }
+      .cv-contact { text-align: left; }
+      .cv-role { grid-template-columns: 1fr; gap: 0.2rem; }
+      .cv-skill-row { grid-template-columns: 120px 1fr; }
+      .cv-edu-row { grid-template-columns: 1fr; gap: 0.2rem; }
+      .cv-edu-period { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ethan_jones<span class="cursor"></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="cv.pdf" download class="nav-dl">Download PDF</a>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <h1 class="cv-name">Ethan Jones</h1>
+      <p class="cv-title">XR &amp; Gameplay Engineer &nbsp;·&nbsp; Unity &nbsp;·&nbsp; Meta Quest</p>
+    </div>
+    <div class="cv-contact">
+      <a href="mailto:ethanljones01@outlook.com">ethanljones01@outlook.com</a>
+      <a href="https://www.linkedin.com/in/ethanljones/" target="_blank">linkedin.com/in/ethanljones</a>
+      <a href="https://ej2001.github.io">ej2001.github.io</a>
+      <span>UK</span>
+    </div>
+  </div>
+
+  <hr class="cv-divider" />
+
+  <!-- PROFILE -->
+  <div class="cv-section">
+    <p class="cv-section-label">Profile</p>
+    <p class="cv-profile">
+      Unity developer with 4 years of professional experience shipping two multiplayer VR products on Meta Quest. Specialist in gameplay AI, networked systems, and scalable C# architecture.
+    </p>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <p class="cv-section-label">Experience</p>
+
+    <div class="cv-role">
+      <span class="cv-role-title">VR Gameplay &amp; Systems Engineer</span>
+      <span class="cv-role-dates">June 2022 – Present</span>
+    </div>
+    <p class="cv-company">Campus XR / Kudos Studios</p>
+
+    <p class="cv-project">Headrush Arena — multiplayer Meta Quest arena shooter</p>
+    <ul class="cv-bullets">
+      <li>Bot AI system built on Behaviour Trees with a communication layer where bots report state to the AI Director through events including casualty reporting and requests for reinforcement, keeping encounters coordinated rather than chaotic</li>
+      <li>Solved a multiplayer stability problem where clients stalling on map load caused crashes; built a two-stage watchdog that self-recovers stuck clients with a contextual error rather than silently failing</li>
+      <li>Shipped PVE Survival, TDM and FFA modes, Doom-style spawn intensity pacing, a global and local announcer service, the big head wobble mechanic, and a full player feedback layer</li>
+    </ul>
+
+    <p class="cv-project">Campus XR — immersive VR education platform, Meta Quest</p>
+    <ul class="cv-bullets">
+      <li>AI debate system where students speak to historical characters via Whisper voice input, scored by an AI overview system evaluating the student's argument in real time</li>
+      <li>Utility AI for interactive animals with player bonding and feeding interaction, evaluating behaviours via weighted considerations</li>
+      <li>Range of gameplay features including a jetpack mechanic, quiz game, educational squash court, and AI companion characters; plus a tutorial system that recognises teacher vs student and serves the appropriate module flow</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="cv-section">
+    <p class="cv-section-label">Technical Skills</p>
+    <div class="cv-skills">
+      <div class="cv-skill-row">
+        <span class="cv-skill-label">Core</span>
+        <span class="cv-skill-val">C# (4 years), Unity, Meta Quest, Meta XR SDK</span>
+      </div>
+      <div class="cv-skill-row">
+        <span class="cv-skill-label">AI / Gameplay</span>
+        <span class="cv-skill-val">Utility AI, Behaviour Trees, GOAP, Finite State Machines, NavMesh</span>
+      </div>
+      <div class="cv-skill-row">
+        <span class="cv-skill-label">Architecture</span>
+        <span class="cv-skill-val">ServiceLocator, ScriptableObject pipelines, event-driven systems, UniTask</span>
+      </div>
+      <div class="cv-skill-row">
+        <span class="cv-skill-label">Networking</span>
+        <span class="cv-skill-val">Coherence, Photon, multiplayer architecture, RPC vs synced state design</span>
+      </div>
+      <div class="cv-skill-row">
+        <span class="cv-skill-label">Tooling</span>
+        <span class="cv-skill-val">Git, PlasticSCM, Agile development</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <p class="cv-section-label">Education</p>
+
+    <div class="cv-edu-row">
+      <div>
+        <p class="cv-edu-degree">BA (Hons) Game Development: Programming</p>
+        <p class="cv-edu-inst">Falmouth University</p>
+      </div>
+      <div>
+        <p class="cv-edu-period">2019 – 2022</p>
+        <p class="cv-edu-grade">First Class Honours</p>
+      </div>
+    </div>
+
+    <div class="cv-edu-row">
+      <div>
+        <p class="cv-edu-degree">Level 3 Diploma in Creative Media Production</p>
+        <p class="cv-edu-inst">Plymouth City College</p>
+      </div>
+      <div>
+        <p class="cv-edu-period">2017 – 2019</p>
+        <p class="cv-edu-grade">Merit</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-footer">
+    Portfolio: ej2001.github.io &nbsp;&nbsp;·&nbsp;&nbsp; References available on request
+  </div>
+
+</div>
+
+</body>
+</html>
