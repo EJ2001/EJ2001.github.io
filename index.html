@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethan Jones — XR & Gameplay Engineer</title>
+  <title>Ethan Jones · XR & Gameplay Engineer</title>
 
-  <meta property="og:title" content="Ethan Jones — XR & Gameplay Engineer" />
+  <meta property="og:title" content="Ethan Jones · XR & Gameplay Engineer" />
   <meta property="og:description" content="Unity developer with 4 years shipping VR on Meta Quest." />
   <meta property="og:image" content="https://ej2001.github.io/media/og-preview.png" />
   <meta property="og:url" content="https://ej2001.github.io" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethan Jones — XR & Gameplay Engineer" />
+  <meta name="twitter:title" content="Ethan Jones · XR & Gameplay Engineer" />
   <meta name="twitter:description" content="Unity developer with 4 years shipping VR on Meta Quest." />
   <meta name="twitter:image" content="https://ej2001.github.io/media/og-preview.png" />
 
@@ -706,10 +706,10 @@
   <div class="about-layout">
     <div class="about-body">
       <p>
-        I'm a Unity developer with <strong>4 years of professional experience</strong> building gameplay, AI, and networked systems for real VR products. At Campus XR and Kudos Studios I've worked across both Headrush Arena, a multiplayer Meta Quest arena shooter, and the Campus XR education platform, contributing to gameplay systems, bot AI, networking, and player-facing features.
+        I'm a Unity developer with <strong>4 years of professional experience</strong> building gameplay, AI, and networked systems for real VR products. At Campus XR and Kudos Studios I've worked across both Headrush Arena, a multiplayer Meta Quest arena shooter, and the Campus XR education platform, contributing to gameplay systems, bot AI, networking, and features players directly interact with.
       </p>
       <p>
-        I'm drawn to the <em>architecture layer</em>: the decisions that make a system easy to extend six months later. ServiceLocator, ScriptableObject data pipelines, event-driven design. Not as patterns to name-drop, but because they've saved me and the people I work with real time on real projects.
+        I'm drawn to the <em>architecture layer</em>: the decisions that make a system easy to extend six months later. ServiceLocator, ScriptableObject data pipelines, systems built around events rather than tight coupling. Not as patterns to namedrop, but because they've saved me and the people I work with real time on real projects.
       </p>
     </div>
     <div class="about-sidebar">
@@ -784,7 +784,7 @@
             <img src="media/hra-keyart.png" alt="Headrush Arena key art" loading="lazy" />
           </div>
         </div>
-        <p class="media-caption">In-game screenshots</p>
+        <p class="media-caption">Screenshots from the game</p>
       </div>
 
       <!-- Case study right -->
@@ -792,7 +792,7 @@
         <div>
           <p class="cs-block-label">The challenge</p>
           <p class="cs-block-body">
-            Headrush Arena is a multiplayer Meta Quest arena shooter built on Coherence's Cloud Rooms architecture. The challenge was shipping a coherent, fun shooter with convincing bot AI, multiple game modes, and a full progression system in a constrained VR environment where performance headroom is tight and latency in networked state can't be hand-waved.
+            Headrush Arena is a multiplayer Meta Quest arena shooter built on Coherence's Cloud Rooms architecture. The challenge was shipping a coherent, fun shooter with convincing bot AI, multiple game modes, and a full progression system in a constrained VR environment where performance headroom is tight and latency in networked state has to be handled properly, not glossed over.
           </p>
         </div>
 
@@ -800,10 +800,10 @@
           <p class="cs-block-label">What I built &amp; why</p>
           <ul class="cs-points">
             <li><strong>Bot AI system</strong> built on Behaviour Trees with a communication layer where bots report state to the AI Director through events including casualty reporting and requests for reinforcement. The Director uses this to redistribute pressure and keep encounters feeling coordinated rather than chaotic.</li>
-            <li><strong>Multiplayer stability</strong> fix for clients stalling on map load and causing crashes. Built a two-stage watchdog that self-recovers stuck clients and shows a contextual error popup rather than silently failing.</li>
-            <li><strong>Spawn intensity system</strong> keeping bot pressure engaging and well-paced without dead zones between encounters.</li>
+            <li><strong>Multiplayer stability</strong> fix for clients stalling on map load and causing crashes. Built a watchdog that automatically recovers stuck clients and shows a contextual error popup rather than silently failing.</li>
+            <li><strong>Spawn intensity system</strong> keeping bot pressure engaging and properly paced without dead zones between encounters.</li>
             <li><strong>Global and local announcer service</strong> tracking killstreaks and match events. Major moments broadcast to all players, personal events fire locally only, giving players both competitive accomplishment and shared social moments.</li>
-            <li><strong>Shipped PVE Survival, TDM and FFA modes</strong>, a data-driven upgrade system, and a full player feedback layer including kill feed, hitmarkers and nameplates.</li>
+            <li><strong>Shipped PVE Survival, TDM and FFA modes</strong>, a configurable upgrade system, and a full player feedback layer including kill feed, hitmarkers and nameplates.</li>
           </ul>
         </div>
 
@@ -842,7 +842,7 @@
         <div>
           <p class="cs-block-label">The project</p>
           <p class="cs-block-body">
-            Campus XR is an immersive VR education platform for schools on Meta Quest. Across the project I contributed to a range of gameplay and AI systems spanning multiple experiences, from AI-driven debate characters to gamified learning environments.
+            Campus XR is an immersive VR education platform for schools on Meta Quest. Across the project I contributed to a range of gameplay and AI systems spanning multiple experiences, from AI debate characters to gamified learning environments.
           </p>
         </div>
 
@@ -852,7 +852,7 @@
             <li><strong>AI debate system</strong> where students speak to historical AI characters using Whisper for voice input. An AI judge evaluates the student's argument against the character's in real time, with scored results shown on a shared leaderboard.</li>
             <li><strong>Utility AI for interactive animals</strong> with player bonding behaviours. Animals evaluate behaviours via weighted considerations and respond naturally to student presence.</li>
             <li><strong>Range of gamified learning experiences</strong> including a multiplayer quiz arena and educational minigames across the platform.</li>
-            <li><strong>Tutorial and onboarding system</strong> built to recognise whether the user is a teacher or student and serve the appropriate module flow, designed for first-time VR users with no assumed prior experience.</li>
+            <li><strong>Tutorial and onboarding system</strong> built to recognise whether the user is a teacher or student and serve the appropriate module flow, designed for people using VR for the first time with no assumed prior experience.</li>
           </ul>
         </div>
 
@@ -887,7 +887,7 @@
             <img src="media/cxr-screen-4.png" alt="Students in VR classroom" loading="lazy" />
           </div>
         </div>
-        <p class="media-caption">Platform map, in-game environment, and real classroom deployment</p>
+        <p class="media-caption">Platform map, the game environment, and real classroom deployment</p>
       </div>
     </div>
   </div>
@@ -920,7 +920,7 @@
         <li>Behaviour Trees</li>
         <li>GOAP planning</li>
         <li>Finite State Machines</li>
-        <li>Sensor-based perception</li>
+        <li>Sensor based perception</li>
         <li>NavMesh and pathfinding</li>
         <li>AI Director systems</li>
       </ul>
@@ -930,16 +930,17 @@
       <ul class="skill-list">
         <li>ServiceLocator pattern</li>
         <li>ScriptableObject pipelines</li>
-        <li>Event-driven systems</li>
+        <li>Systems built around events</li>
         <li>UniTask (async/await)</li>
         <li>Odin Inspector tooling</li>
-        <li>Data-driven design</li>
+        <li>Configuration driven design</li>
       </ul>
     </div>
     <div class="skill-col">
       <p class="skill-col-title">Networking</p>
       <ul class="skill-list">
         <li>Coherence networking</li>
+        <li>Photon networking</li>
         <li>Multiplayer architecture</li>
         <li>RPC vs synced state design</li>
         <li>Multiplayer game modes</li>
